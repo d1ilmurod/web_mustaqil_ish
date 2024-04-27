@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Kinds(models.Model):
     kinds = models.CharField(max_length=60)
@@ -10,11 +11,10 @@ class Kinds(models.Model):
 
 class Products(models.Model):
     photo = models.ImageField(upload_to='prouct_photo')
-    name = models.ForeignKey(Kinds,on_delete=models.CASCADE)
+    kind = models.ForeignKey(Kinds, on_delete=models.CASCADE)
     body = models.TextField()
-    price = models.FloatField()
+    price = models.IntegerField()
     counts = models.IntegerField()
 
-
     def __str__(self):
-        return self.name
+        return str(self.kind)
