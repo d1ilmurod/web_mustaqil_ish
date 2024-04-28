@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -18,3 +19,7 @@ class Products(models.Model):
 
     def __str__(self):
         return str(self.kind)
+
+    def get_absolute_url(self):
+        return reverse('news_detail_page', args=[self.id])
+
