@@ -23,3 +23,22 @@ class Products(models.Model):
     def get_absolute_url(self):
         return reverse('news_detail_page', args=[self.id])
 
+
+
+class AboutCandyShop(models.Model):
+    name = models.CharField(max_length=50)
+    about = models.TextField()
+    shop_photo = models.ImageField(upload_to='about_candy_shop')
+    location = models.CharField(max_length=255)
+
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+
+
+

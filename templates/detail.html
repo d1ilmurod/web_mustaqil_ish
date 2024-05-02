@@ -7,23 +7,17 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="about_taital_main">
-                     <div class="about_taital"><b></b>{{ about_shop.0.name }}</div>
-                     <p class="about_text">{{ about_shop.0.about }}</p>
-                      <br>
-                     <p class="about_text">{{ about_shop.0.location }}</p>
-
+                     <div class="about_taital">{{ post.kind }}</div>
+                     <p class="about_text">{{ post.body }}</p>
+<!--                     <div class="read_bt"><a href="#">Read More</a></div>-->
                   </div>
                </div>
                <div class="col-md-6">
-                  <div class="about_img"><img src="{{ about_shop.0.shop_photo.url }}"></div>
-                  <br>
-                  <br>
-<br>
+                  <div class="about_img"><img src="{{ post.photo.url }}"></div>
                </div>
             </div>
          </div>
       </div>
-
       <!-- about section end -->
 
 {% endblock content %}
