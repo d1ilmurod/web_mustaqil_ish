@@ -1,7 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView,TemplateView
-# Create your views here.
-from .models import Products,AboutCandyShop
+from .forms import ContactForm
+from .models import Products,AboutCandyShop,AboutMe
 
 # class ProductAll(ListView):
 #     model = Products
@@ -12,10 +13,13 @@ from .models import Products,AboutCandyShop
 def index_page_view(request):
     data = Products.objects.all()
     datas = AboutCandyShop.objects.all()
+    about_me = AboutMe.objects.all()
+
 
     context = {
         'data': data,
         'datas': datas,
+        'about_me': about_me,
     }
 
 
@@ -75,10 +79,29 @@ def galireya_view(request):
 
 
 
-# class AboutCandyShopView(ListView):
-#     model = AboutCandyShop
-#     template_name = 'index.html'
-#     context_object_name = 'abouts'
+class ContactPageView(TemplateView):
+    templates_name = 'contact.html'
+    def get(self,request,*args,**kwargs):
+        form = ContactForm()
+
+        context = {
+            'form': form,
+        }
+
+        return render(request,"contact.html",context)
+
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+
+        if request.method == 'POST':
+            form.save()
+            return HttpResponse("<h1>Xabaringiz yuborildi</h1>")
+
+        context = {
+            'form': form
+        }
+
+        return render(request, "contact.html", context)
 
 
 

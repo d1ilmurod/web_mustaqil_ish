@@ -38,6 +38,30 @@ class AboutCandyShop(models.Model):
 
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    phone = models.CharField(max_length=50)
+    message = models.TextField()
+
+
+    def __str__(self):
+        return self.email
+
+
+
+class AboutMe(models.Model):
+    first_name = models.CharField(max_length=50)
+    photo = models.ImageField(upload_to='about_me')
+    last_name = models.CharField(max_length=50)
+    phono_number = models.CharField(max_length=50)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+
+
+
 
 
 

@@ -109,6 +109,26 @@
       <!-- gallery section end -->
       <!-- testimonial section start -->
 
+         <div class="about_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="about_taital_main">
+                  <div class="about_taital">Men haqimda</div>
+                  <p class="about_text"><b>Ismim: </b>{{ about_me.0.first_name }}</p>
+                  <p class="about_text"><b>familya: </b>{{ about_me.0.last_name }}</p>
+                  <p class="about_text"><b>nomer: </b>{{ about_me.0.phono_number }}</p>
+                  <p class="about_text"><b>email: </b>{{ about_me.0.email }}</p>
+
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="about_img"><img src="{{ about_me.0.photo.url }}"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
       <!-- testimonial section end -->
       <!-- contact section start -->
       <div class="contact_section layout_padding">
